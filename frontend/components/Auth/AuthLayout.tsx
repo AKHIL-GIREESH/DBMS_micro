@@ -8,12 +8,12 @@ const AuthLayout = ({login}:{login:boolean}) => {
                 <div className="w-[50%] ml-5 mr-5 h-[100%] flex flex-col items-center justify-center">
                     <Input/><br/>
                     <Input/><br/>
-                    <Input/><br/><br/>
+                    {login?null:<><Input/><br/></>}<br/>
                     <Button>{login?"Login":"Sign Up"}</Button>
                 </div>
-                <div className="border border-black flex flex-col items-center justify-center">
+                <div className="border border-black w-[30vw] flex flex-col items-center justify-center">
                     <h2 className="font-bold text-3xl mb-2">{!login?"Login":"Create an Account"}</h2>
-                    <p>{"Don't have an account? Click on the link below to get started!"}</p><br/>
+                    <p>{login?"Already a member? Click on the link below to login!":"Don't have an account? Click on the link below to get started!"}</p><br/>
                     <Button className="">{!login?"Login":"Sign Up"}</Button>
                 </div>
             </div>
