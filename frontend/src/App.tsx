@@ -2,14 +2,21 @@ import { useState } from 'react'
 import './App.css'
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { createBrowserRouter,RouterProvider } from "react-router-dom";
+import MovieCard from "../components/MovieCard"
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  //const [count, setCount] = useState(0)
+  const movieCards = [];
+  for (let i = 0; i < 10; i++) {
+      movieCards.push(<MovieCard key={i} />);
+  }
   return (
-    <>
+    <div>
       Book Your Show
-    </>
+      <div className='ml-[3vw] flex flex-wrap w-[94vw] m-0 justify-evenly'>
+        {movieCards}
+      </div>
+    </div>
   )
 }
 

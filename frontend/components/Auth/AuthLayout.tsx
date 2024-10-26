@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Link } from "react-router-dom"
 
 const AuthLayout = ({login}:{login:boolean}) => {
     return(
@@ -14,7 +15,7 @@ const AuthLayout = ({login}:{login:boolean}) => {
                 <div className="border border-black w-[30vw] flex flex-col items-center justify-center">
                     <h2 className="font-bold text-3xl mb-2">{!login?"Login":"Create an Account"}</h2>
                     <p>{login?"Already a member? Click on the link below to login!":"Don't have an account? Click on the link below to get started!"}</p><br/>
-                    <Button className="">{!login?"Login":"Sign Up"}</Button>
+                    <Button><Link to={`/${login?"signup":"login"}`} className="text-white">{!login?"Login":"Sign Up"}</Link></Button>
                 </div>
             </div>
         </>
