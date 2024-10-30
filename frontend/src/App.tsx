@@ -7,9 +7,11 @@ import MovieCard from "../components/MovieCard"
 function App() {
   //const [count, setCount] = useState(0)
   const movieCards = [];
+  
   for (let i = 0; i < 10; i++) {
       movieCards.push(<MovieCard key={i} />);
   }
+
   return (
     <div>
       Book Your Show

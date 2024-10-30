@@ -5,11 +5,16 @@ import App from './App.tsx'
 import './index.css'
 import Login from "../pages/Login/Login.tsx"
 import SignUp from "../pages/SignUp/SignUp.tsx"
+import Movie from "../pages/Movie/Movie.tsx"
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />
+  },
+  {
+    path:"/:id",
+    element:<Movie/>
   },
   {
     path:"/login",

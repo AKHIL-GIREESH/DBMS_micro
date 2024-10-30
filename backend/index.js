@@ -1,6 +1,13 @@
-const express = require("express");
+const express = require('express');
+const genRouter = require('./routes/generalRoutes');
+
 const app = express();
+const port = 3000;
 
-app.get("/",(req,res) => res.status(200).send("Home");
+app.use(express.json());
 
-app.listen(3001,() => console.log("Server is up and running");
+app.use("/api/v1/auth/", genRouter);
+
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
