@@ -17,6 +17,9 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage:{
+        'gold-gradient': 'linear-gradient(135deg, #ffd700, #f0c14b, #d4af37, #b8860b)'
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

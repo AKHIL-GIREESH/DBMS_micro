@@ -53,7 +53,7 @@ export function MovieCity() {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-[200px] justify-between bg-gold-gradient"
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label

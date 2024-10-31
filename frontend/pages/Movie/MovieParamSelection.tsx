@@ -5,11 +5,13 @@ import MovieCalender from "../../components/Movie/MovieCalender"
   export function TheatreSelection() {
     const {id} = useParams()
     return(
-        <>
-            Theatre {id}
+        <div className="w-[100vw] border border-red-300 min-h-[100vh]">
+            Movie {id}<br/>
             <MovieCity/>
-            <MovieCalender/>
-        </>
+            <div className="w-fit">
+                <MovieCalender/>
+            </div>
+        </div>
         
     )
   }
