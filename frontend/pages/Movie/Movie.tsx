@@ -3,6 +3,7 @@ import Titanic from "../../src/assets/everyNightInMyDreams.jpg"
 import { Button } from "@/components/ui/button"
 import YouTube from "react-youtube"
 import getYouTubeID from "get-youtube-id"
+import { Link } from "react-router-dom"
 
 
 const Movie = () => {
@@ -25,7 +26,7 @@ const Movie = () => {
                     <Button>RATE</Button>
                     </div>
                     <br/><br/>
-                    <br/><Button>Book Tickets</Button>
+                    <br/><Link to="theatre"><Button>Book Tickets</Button></Link>
                 </div>
             </div>
             <br/>
@@ -57,6 +58,17 @@ Eum veniam natus et ipsum officiis vel accusamus tenetur eum odio delectus? Aut 
                 <h1 className="font-extrabold">
                     REVIEWS
                 </h1>
+                <div className="flex justify-between">
+                    <div className="bg-red-500 p-4 rounded-md text-start w-[48%]">
+                        <p className="font-semibold text-xl">User</p>
+                        <p className="font-light">Lorem ipsum dolor sit amet. In nulla dolorem quo beatae quasi in rerum sapiente hic eligendi facilis qui amet ipsam et molestiae distinctio! Eum quia assumenda qui numquam debitis sed perferendis quas quo expedita consequatur eos quia asperiores.</p>
+                    </div>
+
+                    <div className="bg-red-500 p-4 rounded-md text-start w-[48%]">
+                        <p className="font-semibold text-xl">User</p>
+                        <p className="font-light">Lorem ipsum dolor sit amet. In nulla dolorem quo beatae quasi in rerum sapiente hic eligendi facilis qui amet ipsam et molestiae distinctio! Eum quia assumenda qui numquam debitis sed perferendis quas quo expedita consequatur eos quia asperiores.</p>
+                    </div>
+                </div>
                 <br/>
             </div>
         </div>

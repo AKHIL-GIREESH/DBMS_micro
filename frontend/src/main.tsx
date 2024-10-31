@@ -6,6 +6,7 @@ import './index.css'
 import Login from "../pages/Login/Login.tsx"
 import SignUp from "../pages/SignUp/SignUp.tsx"
 import Movie from "../pages/Movie/Movie.tsx"
+import TheatreSelection from "../pages/Movie/MovieParamSelection.tsx"
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path:"/:id",
     element:<Movie/>
+  },
+  {
+    path:"/:id/theatre",
+    element:<TheatreSelection/>,
   },
   {
     path:"/login",
