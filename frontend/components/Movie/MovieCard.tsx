@@ -1,4 +1,4 @@
-import Titanic from "../src/assets/everyNightInMyDreams.jpg"
+import Titanic from "../../src/assets/everyNightInMyDreams.jpg"
 
 const MovieCard = () => {
     return(
