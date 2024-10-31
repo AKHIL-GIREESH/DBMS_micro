@@ -15,8 +15,6 @@ import { useState } from "react"
     const modifyCity = (val:string) => {
         setCity(val)
     }
-    
-    console.log(city)
 
     return(
         <div className="w-[100vw] border border-red-300 min-h-[100vh]">
