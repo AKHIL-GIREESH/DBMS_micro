@@ -1,7 +1,4 @@
-import { useState } from 'react'
 import './App.css'
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { createBrowserRouter,RouterProvider } from "react-router-dom";
 import MovieCard from "../components/Movie/MovieCard"
 
 function App() {

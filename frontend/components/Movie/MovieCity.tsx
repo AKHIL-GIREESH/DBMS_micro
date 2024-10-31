@@ -42,9 +42,9 @@ const frameworks = [
     },
   ]
 
-export function MovieCity() {
+export function MovieCity({modifyCity,value}:{value:string,modifyCity:(val:string) => void}) {
   const [open, setOpen] = useState(false)
-  const [value, setValue] = useState("")
+  //const [value, setValue] = useState("")
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -72,7 +72,7 @@ export function MovieCity() {
                   key={framework.value}
                   value={framework.value}
                   onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue)
+                    modifyCity(currentValue === value ? "" : currentValue)
                     setOpen(false)
                   }}
                 >
