@@ -10,8 +10,8 @@ function App() {
   }
 
   return (
-    <div>
-      Book Your Show
+    <div className='text-center'>
+      <h1 className='font-extrabold'>Book Your Show</h1>
       <div className='ml-[3vw] flex flex-wrap w-[94vw] m-0 justify-evenly'>
         {movieCards}
       </div>

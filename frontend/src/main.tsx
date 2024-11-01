@@ -7,6 +7,7 @@ import Login from "../pages/Login/Login.tsx"
 import SignUp from "../pages/SignUp/SignUp.tsx"
 import Movie from "../pages/Movie/Movie.tsx"
 import TheatreSelection from "../pages/Movie/MovieParamSelection.tsx"
+import Navbar from "../components/Navbar/Navbar.tsx"
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <Navbar/>
     <RouterProvider router={router} />
   </StrictMode>,
 )
