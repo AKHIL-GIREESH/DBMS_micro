@@ -1,15 +1,48 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { useMutation } from "react-query"
 import { Link } from "react-router-dom"
+import { Loader2 } from "lucide-react"
+import { useState } from "react"
+import {signUp} from "../../api/signUp"
 
 const AuthLayout = ({login}:{login:boolean}) => {
+
+    const [loginData,setLoginData] = useState({
+        email:"",
+        password:""
+    })
+
+    const [signData,setSignData] = useState({
+        email:"",
+        password:"",
+        username:""
+    })
+
+    const handleChange = (e : React.ChangeEvent<HTMLInputElement>) => {
+        const {value,name} = e.target
+        if(login){
+            setLoginData((prev) => ({...prev,[name]:value}))
+        }else{
+            setSignData((prev) => ({...prev,[name]:value}))
+        }
+    }
+
+    const {mutate:follow,isPending,error} = useMutation({
+        mutationFn: async () => {
+            const updatedUser = await signUp()
+            console.log(updatedUser)
+            setUser(updatedUser)
+        }
+    })
+
     return(
         <>
             <div className="flex border border-black w-[60vw] h-[50vh] text-white rounded-s-md">
                 <div className="bg-black w-[50%] pl-5 pr-5 h-[100%] flex flex-col items-center justify-center">
-                    <Input className="border border-light bg-light"/><br/>
-                    <Input className="border border-light  bg-light"/><br/>
-                    {login?null:<><Input className="border border-light  bg-light"/><br/></>}<br/>
+                    {login?null:<><Input name="username" placeholder="username" className="border border-light  bg-light" value={signData.username} onChange={(e) => handleChange(e)}/><br/></>}
+                    <Input name="email" placeholder="email" className="border border-light bg-light" value={login?loginData.email:signData.email} onChange={(e) => handleChange(e)}/><br/>
+                    <Input name="password" placeholder="password" className="border border-light  bg-light" value={login?loginData.password:signData.password} onChange={(e) => handleChange(e)}/><br/><br/>
                     <Button className="bg-gold-gradient text-black font-bold">{login?"LOGIN":"SIGN UP"}</Button>
                 </div>
                 <div className="border border-black w-[30vw] flex flex-col items-center justify-center bg-gold-gradient2 text-black rounded-s-2xl rounded-e-md text-center">
