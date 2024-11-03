@@ -25,8 +25,8 @@ const frameworks = [
       label: "Kochi",
     },
     {
-      value: "Kolkata",
-      label: "Kolkata",
+      value: "Downtown",
+      label: "Downtown",
     },
     {
       value: "Bangalore",

@@ -1,7 +1,7 @@
-const TimeSlot = () => {
+const TimeSlot = ({id,name}:any) => {
     return(
         <div className="bg-gold-gradient w-fit text-black p-2 rounded-md">
-            4:20 - 6:90
+            {name} {id}
         </div>
     )
 }

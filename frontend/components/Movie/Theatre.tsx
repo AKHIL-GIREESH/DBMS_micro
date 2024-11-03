@@ -1,31 +1,31 @@
 import { useQuery } from "react-query"
 import Loading from "../Error/Loading"
 import Oops from "../Error/Oops"
+import { getTheatres } from "../../api/getTheatres"
+import TheatreCard from "./TheatreCard"
 
-// const Theatre = () => {
+const Theatre = ({id,dat}:{id:string,dat:any}) => {
 
-//     const {isError,isFetching,data} = useQuery({
-//         queryKey:['getReviews','Movies'],
-//         queryFn: async () => await getReviewByMovie(id)
-//     })
+    const {isError,isFetching,data} = useQuery({
+        queryKey:['getTheatres','Movies'],
+        queryFn: async () => await getTheatres(id,dat)
+    })
 
-//     console.log("dataagain",data)
+    console.log("thre",data)
 
-//     if(isFetching){
-//     return(<Loading/>)
-//     }
+    if(isFetching){
+    return(<Loading/>)
+    }
     
-//     if(isError){
-//     return(<Oops/>)
-//     }
+    if(isError){
+    return(<Oops/>)
+    }
 
-//     //if(data){
-//     //return data.map(({name,poster,rating,id}) => <MovieCard id={id} name={name} poster={poster} rating={rating}/>)
-//     //}
+    if (data) {
+        return Object.values(data).map((value: any) => (
+            <TheatreCard key={value[0]} name={value[1]} slots={value.slice(2)} />
+        ));
+    }
+}
 
-//     return(
-        
-//     )
-// }
-
-// export default Theatre
+export default Theatre
