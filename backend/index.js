@@ -2,10 +2,12 @@ const express = require('express');
 const genRouter = require('./routes/generalRoutes');
 const authRouter = require('./routes/authRoutes')
 const movieRouter = require("./routes/movie")
+const cors = require("cors")
 
 const app = express();
 const port = 3000;
 
+app.use(cors())
 app.use(express.json());
 
 app.use("/api/v1/gen/", genRouter);

@@ -1,8 +1,8 @@
 import { MovieDetails } from "../Types/Movie"
 
-export const getTop4Movies = async (): Promise<MovieDetails[]> => {
+export const getNotTop4Movies = async (): Promise<MovieDetails[]> => {
     try {
-        const response = await fetch(`http://localhost:3000/api/v1/gen/t4`, {
+        const response = await fetch(`http://localhost:3000/api/v1/gen/others`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
