@@ -8,6 +8,9 @@ import SignUp from "../pages/SignUp/SignUp.tsx"
 import Movie from "../pages/Movie/Movie.tsx"
 import TheatreSelection from "../pages/Movie/MovieParamSelection.tsx"
 import { QueryClient, QueryClientProvider } from 'react-query'
+import MgrHome from "../pages/Mgr/MgrHome.tsx"
+import LoginMgr from "../pages/Login/LoginMgr.tsx"
+import SignUpMgr from "../pages/SignUp/SignUpMgr.tsx"
 
 const queryClient = new QueryClient();
 
@@ -36,14 +39,18 @@ const router = createBrowserRouter([
     path:"/signup",
     element:<SignUp/>
   },
-  // {
-  //   path:"/loginMgr",
-  //   element:,
-  // },
-  // {
-  //   path:"/signUpMgr",
-  //   element:,
-  // },
+  {
+    path:"/loginMgr",
+    element:<LoginMgr/>,
+  },
+  {
+    path:"/signupMgr",
+    element:<SignUpMgr/>
+  },
+  {
+    path:"/Mgr/Dashboard",
+    element:<MgrHome/>,
+  },
 ])
 
 createRoot(document.getElementById('root')!).render(
