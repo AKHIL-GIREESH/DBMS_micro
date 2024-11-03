@@ -3,7 +3,7 @@ const pool = require("../db/connect")
 const SignUp = async (req,res) => {
     try{
         const {username,email,password} = req.body
-        const result = await pool.query(`INSERT INTO public."user" (username, email, password, created_at, updated_at) VALUES ('${username}', '${email}', '${password}', NOW(), NOW())`)
+        const result = await pool.query(`INSERT INTO public."user" (username, email, password, created_at, updated_at) VALUES ('${username}', '${email}', '${password}', NOW(), NOW()) RETURNING *`)
         res.status(200).json(result.rows);
     }catch(e){
         console.log(e);
