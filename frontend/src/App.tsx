@@ -23,7 +23,7 @@ function App() {
         </div>
         
         <h1 className='font-extrabold mb-[3vh] text-my-gold pt-[5vh]'>Recommended</h1>
-        <div className='ml-[3vw] grid grid-cols-5 w-[94vw] m-0 justify-evenly'>
+        <div className='ml-[3vw] grid grid-cols-5 w-[94vw] m-0 justify-evenly text-center'>
           <NotTop4/>
         </div>
       </div>

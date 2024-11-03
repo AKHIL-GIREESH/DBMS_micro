@@ -1,6 +1,8 @@
 import { useQuery } from 'react-query';
 import { getTop4Movies } from '../../api/getAllMovies';
 import MovieCard from './MovieCard';
+import Loading from "../Error/Loading"
+import Oops from "../Error/Oops"
 
 const Top4 = () => {
 
@@ -12,7 +14,11 @@ const Top4 = () => {
       //console.log(data)
     
       if(isFetching){
-        return(<>Loading...</>)
+        return(<Loading/>)
+      }
+      
+      if(isError){
+        return(<Oops/>)
       }
 
       if(data){
