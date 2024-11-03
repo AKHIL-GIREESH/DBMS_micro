@@ -35,7 +35,15 @@ const router = createBrowserRouter([
   {
     path:"/signup",
     element:<SignUp/>
-  }
+  },
+  // {
+  //   path:"/loginMgr",
+  //   element:,
+  // },
+  // {
+  //   path:"/signUpMgr",
+  //   element:,
+  // },
 ])
 
 createRoot(document.getElementById('root')!).render(

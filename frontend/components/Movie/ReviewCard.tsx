@@ -1,6 +1,6 @@
-import { Review } from "Types/Movie"
+import { Review } from "../../Types/Movie"
 
-const ReviewCard = ({review,rating,username}:Review) => {
+const ReviewCard = ({review,username}:Review) => {
     return(
         <div className="bg-black text-white border border-light p-4 rounded-md text-start w-[48%]">
             <p className="font-semibold text-xl">{username}</p>

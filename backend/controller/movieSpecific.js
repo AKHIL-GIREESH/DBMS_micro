@@ -1,4 +1,3 @@
-const { populate } = require("dotenv");
 const pool = require("../db/connect");
 
 const getOneMovie = async (req,res) => {
@@ -16,8 +15,23 @@ const getTheatres = async (req,res) => {
     try{
         const {movieId} = req.params
         const {location,date} = req.body
-        const result  = await pool.query(`SELECT t.id AS theatre_id, t.name AS theatre_name, t.location, s.screen_name, sl.date, sl.slot_time, m.name AS movie_name FROM theatre t JOIN screen s ON t.id = s.theatre_id JOIN slot sl ON s.id = sl.screen_id JOIN movie m ON sl.movie_id = m.id WHERE t.location = '${location}' AND sl.date = '${date}' AND  m.id = ${movieId} ORDER BY t.name, sl.slot_time`)
-        res.status(200).json(result.rows);
+        const result  = await pool.query(`SELECT t.id AS theatre_id, t.name AS theatre_name, t.location, s.id AS screen_id, s.screen_name, sl.slot_time FROM public.theatre t JOIN public.screen s ON s.theatre_id = t.id JOIN public.slot sl ON sl.screen_id = s.id WHERE t.location = '${location}' AND sl.movie_id = ${movieId} AND sl.start_date <= '${date}' AND (sl.end_date IS NULL OR sl.end_date >= '${date}');`)
+        const inter = result.rows
+        console.log(inter.length)
+        
+        let obj = {}
+        
+        for(let i=0;i<inter.length;i++){
+            if(obj[inter[i].theatre_id]){
+                obj[inter[i].theatre_id].push(inter[i].slot_time)
+            }else{
+                obj[inter[i].theatre_id] = [inter[i].screen_id,inter[i].theatre_name,inter[i].slot_time]
+            }
+        }
+
+        console.log(obj)
+
+        res.status(200).json(obj);
     }catch(e){
         console.log(e);
         res.status(500).send('Server Error');
