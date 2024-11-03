@@ -10,7 +10,7 @@ export const getTop4Movies = async (): Promise<MovieDetails[]> => {
         })
 
         const respJSON = await response.json()
-        console.log(respJSON)
+        //console.log(respJSON)
         return respJSON
     } catch (e) {
         throw new Error("Something went wrong: " + e)

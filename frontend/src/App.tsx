@@ -1,5 +1,4 @@
 import './App.css'
-import MovieCard from "../components/Movie/MovieCard"
 import Navbar from "../components/Navbar/Navbar.tsx"
 import Top4 from "../components/Movie/Top4.tsx"
 import NotTop4 from "../components/Movie/NotTop4.tsx"
