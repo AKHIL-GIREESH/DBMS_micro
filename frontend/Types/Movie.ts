@@ -4,3 +4,9 @@ export type MovieDetails = {
     poster: string,
     rating: string
 }
+
+export type Review = {
+    rating: Number,
+    review: string,
+    username: string
+}

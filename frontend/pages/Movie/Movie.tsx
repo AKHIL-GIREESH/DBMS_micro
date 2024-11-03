@@ -1,5 +1,4 @@
 import { useParams } from "react-router"
-import Titanic from "../../src/assets/everyNightInMyDreams.jpg"
 import { Button } from "@/components/ui/button"
 import YouTube from "react-youtube"
 import getYouTubeID from "get-youtube-id"
@@ -9,6 +8,7 @@ import { useQuery } from "react-query"
 import {getOneMovie} from "../../api/getOneMovie"
 import Loading from "../../components/Error/Loading"
 import Oops from "../../components/Error/Oops"
+import Review from "../../components/Movie/Review"
 
 
 const Movie = () => {
@@ -22,7 +22,7 @@ const Movie = () => {
     }
 
     const {isError,isFetching,data} = useQuery({
-        queryKey:['getNotTop4Movies','Movies'],
+        queryKey:['getOneMovie','Movies'],
         queryFn: async () => {
             if(id){
                 return await getOneMovie(id)
@@ -89,15 +89,7 @@ const Movie = () => {
                             REVIEWS
                         </h1>
                         <div className="flex justify-between">
-                            <div className="bg-black text-white border border-light p-4 rounded-md text-start w-[48%]">
-                                <p className="font-semibold text-xl">User</p>
-                                <p className="font-light">Lorem ipsum dolor sit amet. In nulla dolorem quo beatae quasi in rerum sapiente hic eligendi facilis qui amet ipsam et molestiae distinctio! Eum quia assumenda qui numquam debitis sed perferendis quas quo expedita consequatur eos quia asperiores.</p>
-                            </div>
-                            {/* bg-gold-gradient text-black */}
-                            <div className="bg-black text-white border border-light p-4 rounded-md text-start w-[48%]">
-                                <p className="font-semibold text-xl">User</p>
-                                <p className="font-light">Lorem ipsum dolor sit amet. In nulla dolorem quo beatae quasi in rerum sapiente hic eligendi facilis qui amet ipsam et molestiae distinctio! Eum quia assumenda qui numquam debitis sed perferendis quas quo expedita consequatur eos quia asperiores.</p>
-                            </div>
+                            {id && <Review id={id}/>}
                         </div>
                         <br/>
                     </div>

@@ -24,4 +24,15 @@ const getTheatres = async (req,res) => {
     }
 }
 
-module.exports = {getOneMovie, getTheatres}
+const getReviewByMovie = async(req,res) => {
+    try{
+        const {movieId} = req.params
+        const result  = await pool.query(`SELECT R.review, S.rating, U.username FROM public.Review R JOIN public.Rating S ON R.movie_id = S.movie_id AND R.user_id = S.user_id JOIN public."user" U ON U.id = R.user_id WHERE U.id = ${movieId}`)
+        res.status(200).json(result.rows);
+    }catch(e){
+        console.log(e);
+        res.status(500).send('Server Error');
+    }
+}
+
+module.exports = {getOneMovie, getTheatres,getReviewByMovie}
