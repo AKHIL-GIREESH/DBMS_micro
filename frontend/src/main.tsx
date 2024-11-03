@@ -20,6 +20,9 @@ const router = createBrowserRouter([
     path:"/:id/theatre",
     element:<TheatreSelection/>,
   },
+  // {
+  //   path:"/:id/theatre/"
+  // },
   {
     path:"/login",
     element:<Login/>
