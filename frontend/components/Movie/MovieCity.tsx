@@ -53,7 +53,7 @@ export function MovieCity({modifyCity,value}:{value:string,modifyCity:(val:strin
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between bg-gold-gradient"
+          className="w-[200px] justify-between text-black"
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label

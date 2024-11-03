@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import {MovieCity} from "../../components/Movie/MovieCity"
 import MovieCalender from "../../components/Movie/MovieCalender"
 import { useState } from "react"
+import TheatreCard from "../../components/Movie/TheatreCard"
   
   export function TheatreSelection() {
     const {id} = useParams()
@@ -17,12 +18,17 @@ import { useState } from "react"
     }
 
     return(
-        <div className="w-[100vw] border border-red-300 min-h-[100vh]">
-            Movie {id}<br/>
+        <div className="bg-light text-white flex flex-col items-center text-center w-[100vw] min-h-[100vh]">
+            <h1 className="pt-[5vh]">MOVIE {id}</h1><br/>
             <MovieCity value={city} modifyCity={modifyCity}/>
-            <div className="w-fit">
+            <div className="w-fit pt-[3vh] pb-[3vh]">
                 <MovieCalender modifyDate={modifyDate} date={date}/>
             </div>
+            <h1>THEATRES</h1>
+            {city === ""?<p>Choose city to see all the theatres available</p>:
+            <div>
+                {<TheatreCard/>}    
+            </div>}
         </div>
         
     )

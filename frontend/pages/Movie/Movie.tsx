@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import YouTube from "react-youtube"
 import getYouTubeID from "get-youtube-id"
 import { Link } from "react-router-dom"
+import { Ticket } from "lucide-react"
 
 
 const Movie = () => {
@@ -27,7 +28,7 @@ const Movie = () => {
                         <Button className="bg-gold-gradient text-black font-bold border border-none">RATE</Button>
                         </div>
                         <br/><br/>
-                        <br/><Link to="theatre"><Button className="bg-gold-gradient text-black font-bold border border-none">BOOK TICKETS</Button></Link>
+                        <br/><Link to="theatre"><Button className="bg-gold-gradient text-black font-bold border border-none">BOOK TICKETS <Ticket/></Button></Link>
                     </div>
                 </div>
                 <br/>

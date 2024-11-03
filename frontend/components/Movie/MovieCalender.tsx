@@ -17,7 +17,7 @@ const MovieCalender: React.FC<MovieCalendarProps> = ({ date, modifyDate }) => {
           modifyDate(newDate); // Call modifyDate with the new date
         }
       }}
-      className="rounded-md border bg-black text-white"
+      className="rounded-md border border-light border-opacity-60 text-white"
     />
   );
 };
