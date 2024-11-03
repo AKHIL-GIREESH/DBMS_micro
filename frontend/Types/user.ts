@@ -4,6 +4,11 @@ export type UserSignUpType = {
     password: string
 }
 
+export type UserLoginType = {
+    email: string,
+    password: string
+}
+
 export type UserContextType = {
     username: string,
     email: string,

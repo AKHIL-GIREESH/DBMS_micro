@@ -5,7 +5,8 @@ import { Link, useNavigate } from "react-router-dom"
 import { Loader2 } from "lucide-react"
 import { useState } from "react"
 import {signUp} from "../../api/signUp"
-import { UserContextType, UserSignUpType } from "Types/user"
+import {loginCall} from "../../api/login"
+import { UserSignUpType } from "Types/user"
 
 const AuthLayout = ({login}:{login:boolean}) => {
 
@@ -33,12 +34,27 @@ const AuthLayout = ({login}:{login:boolean}) => {
 
     const {mutate:signUpMutate,isLoading} = useMutation({
         mutationFn: async () => {
-            const newUser = await signUp(signData)
+            let newUser;
+            if(login){
+                console.log("hi")
+                newUser = await loginCall(loginData)
+            }else{
+                newUser = await signUp(signData)
+            }
             console.log("newUser",newUser)
             localStorage.setItem('user', JSON.stringify(newUser))
             navi("/", { replace: true });
         }
     })
+
+    // const {mutate:loginMutate,isLoading} = useMutation({
+    //     mutationFn: async () => {
+    //         const newUser = await loginCall(loginData)
+    //         console.log("newUser",newUser)
+    //         localStorage.setItem('user', JSON.stringify(newUser))
+    //         navi("/", { replace: true });
+    //     }
+    // })
 
     const signFunc = () => {
         signUpMutate()

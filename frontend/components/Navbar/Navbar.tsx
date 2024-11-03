@@ -5,13 +5,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 //import { Film } from "lucide-react"
 
 const Navbar = () => {
-    const storedUser = localStorage.getItem('userid');
+    const storedUser = localStorage.getItem('user');
     return(
         <div className="bg-[#101010] text-white h-[10vh] w-[100vw] border border-black flex items-center">
             <p className="ml-[5vw]">A4</p>
             <Search/>
             
-            {storedUser ? <Avatar>
+            {storedUser ? <Avatar className="ml-auto mr-[2vw]">
                             <AvatarImage src="https://github.com/shadcn.png" />
                             <AvatarFallback>CN</AvatarFallback>
                         </Avatar>:<Button className="bg-gold-gradient border border-none ml-auto mr-[2vw]"><Link className="text-black" to='/login'>Sign in</Link></Button>}
