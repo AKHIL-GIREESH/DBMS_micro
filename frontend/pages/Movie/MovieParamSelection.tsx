@@ -19,16 +19,19 @@ import TheatreCard from "../../components/Movie/TheatreCard"
 
     return(
         <div className="bg-light text-white flex flex-col items-center text-center w-[100vw] min-h-[100vh]">
-            <h1 className="pt-[5vh]">MOVIE {id}</h1><br/>
+            <h1 className="pt-[5vh] font-extrabold text-my-gold">MOVIE {id}</h1><br/>
             <MovieCity value={city} modifyCity={modifyCity}/>
             <div className="w-fit pt-[3vh] pb-[3vh]">
                 <MovieCalender modifyDate={modifyDate} date={date}/>
             </div>
-            <h1>THEATRES</h1>
+            <h1 className="font-extrabold text-my-gold">THEATRES</h1>
             {city === ""?<p>Choose city to see all the theatres available</p>:
-            <div>
-                {<TheatreCard/>}    
+            <div className="pt-[5vh]">
+                <TheatreCard/>
+                <TheatreCard/>
+                <TheatreCard/>
             </div>}
+            
         </div>
         
     )
