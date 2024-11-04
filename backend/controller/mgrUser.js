@@ -24,4 +24,15 @@ const MgrLogin = async (req,res) => {
     }
 }
 
-module.exports = {MgrSignUp,MgrLogin}
+const ScreenAdd = async (req,res) => {
+    try{
+        const {name,nums,tid} = req.body
+        const result = await pool.query(`INSERT INTO public.Screen (screen_name, theatre_id, number_of_seats, created_at) VALUES ('${name}', ${tid}, ${nums}, NOW())`)
+        res.status(200).json(result.rows);
+    }catch(e){
+        console.log(e);
+        res.status(500).send('Server Error');
+    }
+}
+
+module.exports = {MgrSignUp,MgrLogin,ScreenAdd}
