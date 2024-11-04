@@ -63,8 +63,10 @@ const getDataBySlot = async(req,res) => {
 const book = async(req,res) => {
     try{
         const {slot} = req.params
-        const result  = await pool.query(`SELECT m.name AS movie_name, t.name AS theatre_name, s.slot_time, s.start_date, s.end_date, sc.number_of_seats AS total_number_of_seats, s.number_of_seats AS available_seats FROM public.slot s JOIN public.movie m ON s.movie_id = m.id JOIN public.screen sc ON s.screen_id = sc.id JOIN public.theatre t ON sc.theatre_id = t.id WHERE s.id=${slot}`)
-        res.status(200).json(result.rows[0]);
+        const {userId,number_of_seats} = req.body
+        const result  = await pool.query(`INSERT INTO public.booking(user_id, slot_id, booking_time, number_of_seats) VALUES (${userId}, ${slot}, NOW(), ${number_of_seats}) RETURNING *`)
+        const olt = await pool.query(`UPDATE public.slot SET number_of_seats = number_of_seats - ${number_of_seats} WHERE id = ${number_of_seats} RETURNING *`)
+        res.status(200).json({result:result.rows[0],olt:olt.rows[0]});
     }catch(e){
         console.log(e);
         res.status(500).send('Server Error');
