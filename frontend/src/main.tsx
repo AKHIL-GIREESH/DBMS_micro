@@ -49,7 +49,7 @@ const router = createBrowserRouter([
     element:<SignUpMgr/>
   },
   {
-    path:"/Mgr/Dashboard",
+    path:"/Mgr/:id",
     element:<MgrHome/>,
   },
   {

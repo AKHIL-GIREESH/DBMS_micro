@@ -15,7 +15,7 @@ const Navbar = () => {
                             <AvatarImage src="https://github.com/shadcn.png" />
                             <AvatarFallback>CN</AvatarFallback>
                         </Avatar>:<Button className="bg-gold-gradient border border-none ml-auto mr-[2vw]"><Link className="text-black" to='/login'>Sign in</Link></Button>}
-            <Button className="bg-gold-gradient text-black border border-none mr-[5vw]">Publish</Button>
+            <Button className="bg-gold-gradient text-black border border-none mr-[5vw]"><Link className="text-black" to='/loginmgr'>Publish</Link></Button>
         </div>
     )
 }
