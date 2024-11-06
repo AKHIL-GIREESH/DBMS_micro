@@ -14,7 +14,7 @@ app.use(express.json());
 app.use("/api/v1/gen/", genRouter);
 app.use("/api/v1/auth/",authRouter);
 app.use("/api/v1/movie/",movieRouter)
-app.use("/api/v1/auth/mgr/",mgrAuthRouter)
+app.use("/api/v1/mgr/",mgrAuthRouter)
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
