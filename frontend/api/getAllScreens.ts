@@ -1,14 +1,10 @@
-export const createScreen = async (theatre: string, screenData: any) => {
+export const allScreen = async (theatre: string) => {
     try {
-        console.log(screenData)
-        console.log(theatre)
-        console.log(JSON.stringify(screenData))
         const response = await fetch(`http://localhost:3000/api/v1/mgr/${theatre}`, {
-            method: "POST",
+            method: "GET",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(screenData)
         })
 
         const respJSON = await response.json()

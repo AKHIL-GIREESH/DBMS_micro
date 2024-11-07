@@ -1,6 +1,6 @@
 export const mgrSignUp = async (loginData: any) => {
     try {
-        const response = await fetch(`http://localhost:3000/api/v1/auth/mgr/signup`, {
+        const response = await fetch(`http://localhost:3000/api/v1/mgr/signup`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

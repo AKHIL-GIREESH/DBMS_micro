@@ -28,7 +28,8 @@ const ScreenAdd = async (req,res) => {
     try{
         const {name,nums} = req.body
         const {theatre} = req.params
-        const result = await pool.query(`INSERT INTO public.Screen (screen_name, theatre_id, number_of_seats, created_at) VALUES ('${name}', ${theatre}, ${nums}, NOW())`)
+        console.log(theatre)
+        const result = await pool.query(`INSERT INTO public.Screen (screen_name, theatre_id, number_of_seats, created_at) VALUES ('${name}', ${theatre}, ${nums}, NOW()) RETURNING *`)
         res.status(200).json(result.rows);
     }catch(e){
         console.log(e);
@@ -51,7 +52,7 @@ const ScreenUpdate = async (req,res) => {
     try{
         const {theatre,id} = req.params
         const {name,nums} = req.body
-        const result = await pool.query(`UPDATE public.screen SET screen_name=${name}, number_of_seats=${nums} WHERE id = ${id} AND theatre_id = ${theatre}`)
+        const result = await pool.query(`UPDATE public.screen SET screen_name='${name}', number_of_seats=${nums} WHERE id = ${id} AND theatre_id = '${theatre}' RETURNING *`)
         res.status(200).json(result.rows);
     }catch(e){
         console.log(e);
@@ -63,7 +64,7 @@ const ScreenDelete = async (req,res) => {
     try{
         //const {name,nums} = req.body
         const {theatre,id} = req.params
-        const result = await pool.query(`DELETE FROM public.Screen WHERE id = ${id} AND theatre_id = ${theatre}`)
+        const result = await pool.query(`DELETE FROM public.Screen WHERE id = ${id} AND theatre_id = ${theatre} RETURNING *`)
         res.status(200).json(result.rows);
     }catch(e){
         console.log(e);
