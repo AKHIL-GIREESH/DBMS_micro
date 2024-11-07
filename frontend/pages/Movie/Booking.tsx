@@ -15,7 +15,7 @@ const Booking = () => {
     const [booked,setBooked] = useState(false)
     const [seats,setSeats] = useState(1)
 
-    const {isError,isFetching,data} = useQuery({
+    const {isError,isFetching,data,refetch} = useQuery({
         queryKey:['getSlotMovie','Movies'],
         queryFn: async () => {
             if(sid){
@@ -41,6 +41,7 @@ const Booking = () => {
                 console.log("newUser",bookingStatus)
                 if(bookingStatus){
                     setBooked(true)
+                    refetch()
                 }
             }
         }
@@ -70,7 +71,7 @@ const Booking = () => {
                 <Button onClick={() => setSeats(prev => prev+1)}>+</Button>{seats}<Button onClick={() => setSeats(prev => prev-1)}>-</Button>
                 <p>Available Seats {data.available_seats}/{data.total_number_of_seats}</p>
                 {isLoading?<Button className="bg-gold-gradient text-black font-bold" disabled>Loading
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" /></Button>:<Button className="bg-gold-gradient text-black font-bold" onClick={bookingFunc}>{booked?"BOOKED":"BOOK"}</Button>}
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" /></Button>:<Button className="bg-gold-gradient text-black font-bold" onClick={bookingFunc} disabled={booked?true:false}>{booked?"BOOKED":"BOOK"}</Button>}
             </>
         )
     }

@@ -10,6 +10,7 @@ import Loading from "../../components/Error/Loading"
 import Oops from "../../components/Error/Oops"
 import Screens from "../../components/Mgr/Screens"
 import {createScreen} from "../../api/createScreen"
+import {removeScreen} from "../../api/deleteScreen"
 
 const MgrHome = () => {
     const [screenName, setScreenName] = useState("");
@@ -42,6 +43,19 @@ const MgrHome = () => {
                     refetch()
                 }
                 
+            }
+        }
+    })
+
+    const mutationDelete = useMutation({
+        mutationFn: async ({id,tid}:any) => {
+            if(id){
+                console.log("check")
+                let deleteStatus = await removeScreen(id,tid)
+                console.log("newUser",deleteStatus)
+                if(deleteStatus){
+                    refetch()
+                }
             }
         }
     })
@@ -116,7 +130,7 @@ const MgrHome = () => {
                         </DialogContent>
                     </Dialog>
                     <div className=" flex flex-wrap items-center mt-[15vh] justify-around gap-[5.5vw]">
-                        {data.map(({number_of_seats,screen_id,screen_name}:any) => <Screens key={screen_id} id={screen_id} nums={number_of_seats} name={screen_name}/>)}
+                        {data.map(({number_of_seats,screen_id,screen_name}:any) => <Screens tid={id} key={screen_id} id={screen_id} nums={number_of_seats} name={screen_name} loadingState={mutationDelete.isLoading} deleteFunc={mutationDelete.mutate}/>)}
                     </div>
                 </div>
             );

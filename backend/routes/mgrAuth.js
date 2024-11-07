@@ -1,4 +1,4 @@
-const {MgrLogin,MgrSignUp,screenSelect,ScreenAdd,ScreenDelete,ScreenUpdate} = require("../controller/mgrUser");
+const {MgrLogin,MgrSignUp,screenSelect,ScreenAdd,ScreenDelete,ScreenUpdate,slotGet} = require("../controller/mgrUser");
 const router = require("express").Router();
 
 router.route("/login").post(MgrLogin)

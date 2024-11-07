@@ -72,4 +72,14 @@ const ScreenDelete = async (req,res) => {
     }
 }
 
-module.exports = {MgrSignUp,MgrLogin,ScreenAdd,screenSelect,ScreenDelete,ScreenUpdate}
+const slotGet = async (req,res) => {
+    try{
+        const result = await pool.query(`SELECT sl.slot_time, sl.start_date, sl.end_date, m.name AS movie_name FROM public.slot sl JOIN public.movie m ON sl.movie_id = m.id WHERE sl.screen_id = '1001'`)
+        res.status(200).json(result.rows);
+    }catch(e){
+        console.log(e);
+        res.status(500).send('Server Error');
+    }
+}
+
+module.exports = {MgrSignUp,MgrLogin,ScreenAdd,screenSelect,ScreenDelete,ScreenUpdate,slotGet}
