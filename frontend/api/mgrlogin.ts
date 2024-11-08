@@ -1,5 +1,3 @@
-import { UserLoginType } from "../Types/user"
-
 export const mgrLoginCall = async (loginData: any) => {
     try {
         const response = await fetch(`http://localhost:3000/api/v1/mgr/login`, {
