@@ -19,4 +19,4 @@ const Screens = ({nums,id,tid,name,loadingState,deleteFunc}:any) => {
     )
 }
 
-export default Screens
+export default Screens 
